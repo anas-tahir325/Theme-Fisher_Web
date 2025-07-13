@@ -1,75 +1,99 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Floating Chat Widget</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Themefisher Header</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .rotate-icon {
-      transition: transform 0.4s ease;
+    .fade-bottom {
+      mask-image: linear-gradient(to top, transparent, white 30%);
+      -webkit-mask-image: linear-gradient(to top, transparent, white 30%);
     }
-
-    .rotate-180 {
-      transform: rotate(180deg);
+    .fade-top-bottom {
+      mask-image: linear-gradient(to bottom, transparent, white 20%, white 80%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, white 20%, white 80%, transparent);
     }
-
-    .translate-visible {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .translate-hidden {
-      transform: translateY(50px) scale(0.9);
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    #chatWidget {
-      transition: all 0.4s ease;
-      transform-origin: bottom right;
-    }
+      .slide-in {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      .slide-in.active {
+        transform: translateX(0);
+      }
+    
   </style>
 </head>
-<body class="bg-gray-100 min-h-screen font-sans relative">
-
-    <!-- Header -->
-  <header class="flex justify-between items-center ml-[150px] px-8 py-4">
-    <!-- Logo -->
-    <img src="logo.svg" alt="Logo" class="h-[60px] w-[170px]"/>
-
-    <!-- Right side -->
-<div class="flex items-center mr-[160px] space-x-3 hidden md:flex">
-  <!-- Avatars + Help text inside one pill -->
-  <div class="flex items-center space-x-2 bg-transparent px-3 py-1 rounded-md border">
-    <div class="flex -space-x-2">
-      <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/32?img=1" />
-      <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/32?img=2" />
-      <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/32?img=3" />
-      <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/32?img=4" />
-    </div>
-    <span class="text-sm text-gray-800 pl-2">Need help?</span>
-  </div>
-
-  <!-- Icon button (separate) -->
-  <button class="w-10 h-10 bg-transparent border rounded-md  flex items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18M9 3v18m6-18v18M3 21h18" />
-    </svg>
-  </button>
+<body class="bg-[#f7f7f7]">
+   <!-- NAVBAR -->
+    <header class="w-full bg-[#e7e8eb] px-6 py-4 shadow-sm">
+      <div class="flex items-center justify-between">
+        <!-- Logo (both mobile & desktop) -->
+<div class="flex items-center mb-[25px] ml-4 md:ml-[200px]">
+  <img src="https://themefisher.com/images/logo/logo.svg" alt="Logo" class="h-8" />
 </div>
-  </header>
 
 
-  
+        <!-- Desktop Nav (hidden on small) -->
+        <nav class="hidden md:flex space-x-4 h-[30px] mb-[10px] text-[17px] font-medium text-gray-800 items-center">
+          <a href="index.html" class="text-[#1e9db4]">Home</a>
+          <div class="relative group">
+            <a href="themes.html">
+            <button class="flex items-center space-x-1">All Themes</a>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+          <div class="relative group">
+            <a href="bundles.html">
+            <button class="flex items-center space-x-1">Bundles</a>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+          <a href="contact.html" class="hover:text-[#1e9db4]">Contact</a>
+          <a href="https://zeon.studio/" class="hover:text-[#1e9db4]">Hire Experts</a>
+        </nav>
+
+        <!-- Right Controls -->
+        <div class="hidden md:flex items-center space-x-4 mr-[200px] mt-1">
+          <div class="flex items-center border border-gray-400 rounded-md bg-white h-9 w-48 px-2 mr-[100px]">
+            <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1116.65 2.5a7.5 7.5 0 010 14.15z" />
+            </svg>
+            <input type="text" placeholder="Search" class="ml-2 w-full bg-transparent outline-none text-sm placeholder-gray-500" />
+            <span class="text-sm text-gray-400 mr-1">⌘K</span>
+          </div>
+          <a href="cart.html">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13L17 13M7 13L5.4 5M17 13l1.5 7M9 21a1 1 0 11-2 0 1 1 0 012 0zm10 0a1 1 0 11-2 0 1 1 0 012 0z" />
+          </svg></a>
+          <a href="Login.html" class="h-10 px-4 flex items-center space-x-2 border border-gray-400 rounded-md bg-transparent text-sm text-gray-800 hover:scale-105 hover:shadow-lg transition duration-300">
+            <svg class="w-5 h-5 text-gray-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
+              <path d="M313.6 304h-16.7c-22.2 10.3-46.8 16-72.9 16s-50.7-5.7-72.9-16h-16.7C60.2 304 0 364.2 0 438.4C0 456.8 15.2 472 33.6 472H414.4c18.4 0 33.6-15.2 33.6-33.6c0-74.2-60.2-134.4-134.4-134.4zM224 272c70.7 0 128-57.3 128-128S294.7 16 224 16S96 73.3 96 144s57.3 128 128 128z"/>
+            </svg>
+            <span>Login</span>
+          </a>
+        </div>
+
         <!-- Mobile Controls -->
         <div class="flex md:hidden items-center space-x-4">
           <button id="mobileSearchBtn">
             <i class="fas fa-search text-xl text-gray-700"></i>
           </button>
-          <i class="fas fa-shopping-cart text-xl text-gray-700"></i>
-          <i id="loginIcon" class="fas fa-user text-xl text-gray-700 cursor-pointer"></i>
+          <a href="cart.html">
+          <i class="fas fa-shopping-cart text-xl text-gray-700"></i></a>
+          <a href="Login.html">
+          <i id="loginIcon" class="fas fa-user text-xl text-gray-700 cursor-pointer"></i></a>
           <button id="menuBtn">
             <i class="fas fa-bars text-2xl text-gray-700"></i>
           </button>
@@ -78,10 +102,10 @@
       <div id="mobileSearchBar" class="hidden mt-4 md:hidden">
         <input type="text" placeholder="Search..." class="w-full border border-gray-400 rounded-md p-2 text-sm" />
       </div>
-    
+    </header>
 
     <!-- Mobile Sidebar Menu -->
-    <div id="mobileMenu" class="fixed hidden top-0 left-0 w-[75%] max-w-sm h-full bg-white z-50 slide-in">
+    <div id="mobileMenu" class="fixed top-0 left-0 w-[75%] max-w-sm h-full bg-white z-50 slide-in">
       <div class="flex items-center justify-between px-4 py-4 border-b border-gray-300">
         <img src="https://themefisher.com/images/logo/logo.svg" alt="Logo" class="h-8" />
         <button id="closeMenu">
@@ -89,116 +113,1376 @@
         </button>
       </div>
       <nav class="flex flex-col px-6 py-4 space-y-4 text-[18px] font-medium text-gray-800">
-        <a href="text.html" class="flex items-center space-x-2"><i class="fas fa-home"></i><span>Home</span></a>
-        <a href="#" class="flex items-center space-x-2"><i class="fas fa-layer-group"></i><span>All Themes</span></a>
-        <a href="#" class="flex items-center space-x-2"><i class="fas fa-box-open"></i><span>Bundles</span></a>
+        <a href="index.html" class="flex items-center space-x-2"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="themes.html" class="flex items-center space-x-2"><i class="fas fa-layer-group"></i><span>All Themes</span></a>
+        <a href="bundles.html" class="flex items-center space-x-2"><i class="fas fa-box-open"></i><span>Bundles</span></a>
         <a href="contact.html" class="flex items-center space-x-2"><i class="fas fa-phone"></i><span>Contact</span></a>
-        <a href="#" class="flex items-center space-x-2"><i class="fas fa-user-tie"></i><span>Hire Experts</span></a>
+        <a href="https://zeon.studio/" class="flex items-center space-x-2"><i class="fas fa-user-tie"></i><span>Hire Experts</span></a>
       </nav>
     </div>
-    </header>
+<section class="relative bg-[#e7e8eb] flex items-center justify-center min-h-[90vh] overflow-hidden px-4">
+  <!-- Outer Circles (only visible on md & up) -->
+  <div class="absolute hidden md:block w-[90vw] max-w-[1100px] h-[55vh] max-h-[600px] rounded-full border-[2px] border-dashed border-white opacity-80 fade-top-bottom"></div>
+  <div class="absolute hidden md:block w-[95vw] max-w-[1200px] h-[60vh] max-h-[700px] rounded-full border-[2px] border-dashed border-white opacity-80 fade-top-bottom"></div>
+  <div class="absolute hidden md:block w-[85vw] max-w-[1000px] h-[50vh] max-h-[500px] rounded-full border-t-[2px] border-l-[2px] border-r-[2px] border-white fade-bottom bg-white/[0.04]"></div>
 
-  <main class="flex-grow flex items-center justify-center px-4">
-  <div
-    class="bg-white rounded-2xl w-[1300px] h-[500px] mb-[200px] sm:h-[600px] p-12 text-center
-           max-w-full max-[480px]:w-[95vw] max-[480px]:h-auto max-[480px]:mb-10 max-[480px]:p-6"
-  >
-    <img
-      src="empty-cart.svg"
-      alt="Empty Box"
-      class="mx-auto w-[200px] h-[200px] mb-6 max-[480px]:w-[150px] max-[480px]:h-[150px] max-[480px]:mb-4"
-    />
-    <h2
-      class="text-[33.2031px] font-semibold text-[#081E2B] mb-2 max-[480px]:text-2xl max-[480px]:mb-2"
-    >
-      Your Product Cart is Empty!
-    </h2>
-    <p
-      class="text-gray-600 text-[17px] mb-6 max-[480px]:text-sm max-[480px]:mb-4"
-    >
-      Before proceed to checkout, you must add<br /> some products to your cart.
-    </p>
-    <a
-      href="text.html"
-      class="inline-block bg-[#4EA8B9] hover:bg-[#3c8a9b] text-white px-6 py-2 rounded-md text-[19px] h-[50px] font-medium
-             max-[480px]:w-full max-[480px]:text-base max-[480px]:h-[40px] max-[480px]:px-4"
-    >
-      Return to shop
-    </a>
-  </div>
-</main>
-
-  <!-- Chat Box -->
-  <div id="chatWidget" class="fixed bottom-20 mb-[30px] right-6 w-96 bg-white rounded-lg shadow-xl z-50 translate-hidden">
-    <div class="bg-[#4EA8B9] p-4 h-[180px] rounded-t-2xl text-white text-center">
-      <div class="flex mt-[30px] justify-center mb-2 -space-x-2">
-        <img src="https://i.pravatar.cc/40?img=5" class="w-12 h-12 rounded-full border-2 border-white" />
-        <img src="https://i.pravatar.cc/40?img=6" class="w-12 h-12 rounded-full border-2 border-white" />
-        <img src="https://i.pravatar.cc/40?img=7" class="w-12 h-12 rounded-full border-2 border-white" />
-        <img src="https://i.pravatar.cc/40?img=8" class="w-12 h-12 rounded-full border-2 border-white" />
-      </div>
-      <h2 class="font-bold text-[21.25px]">How can we help?</h2>
-      <p class="text-[13.6px]">We usually respond within 24 hours</p>
+  <!-- Desktop Icons (hidden on small) -->
+  <div class="absolute hidden md:block w-full max-w-[1100px] h-full max-h-[700px]">
+    <!-- Same icon placements as before -->
+   <!-- Top Center Icon -->
+<div class="absolute top-[40px] left-1/2 transform -translate-x-1/2 bg-white rounded-full shadow-md p-1">
+  <img src="assets/nextjs.svg" alt="N" class="w-10 h-10 rounded-full" />
+</div>
+    <div class="absolute top-[15%] right-[8%] transform -translate-y-1/2 bg-white rounded-full shadow-md p-1">
+      <img src="assets/bootstrap.svg" alt="Pencil" class="w-10 h-10 rounded-full" />
     </div>
-    <form class="p-4 space-y-3">
-      <p class="text-[13.6px] text-[#081E2B]">Name</p>
-      <input type="text" class="w-full h-12 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-teal-500" />
-      <p class="text-[13.6px] text-[#081E2B]">Email address</p>
-      <input type="email" class="w-full h-12 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-teal-500" />
-      <p class="text-[13.6px] text-[#081E2B]">Select Department</p>
-      <div class="relative">
-        <select class="appearance-none w-full h-12 bg-white p-3 pr-12 border rounded focus:outline-none focus:ring-2 focus:ring-teal-500">
-          <option></option>
-          <option>Pre Sales Questions</option>
-          <option>Payment Problems</option>
-          <option>Others</option>
-        </select>
-        <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-          <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
-      </div> 
-      <p class="text-[13.6px] text-[#081E2B]">How can we help?</p>
-      <textarea rows="4" placeholder="" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
-      <p class="text-[12px] text-gray-500">* Your data is safe with us. Check our <a href="#" class="underline text-[#4EA8B9]">privacy policy</a>.</p>
-      <button type="submit" class="w-full bg-[#4EA8B9] hover:bg-teal-700 text-white py-2 rounded-lg text-[17px]">Send Message</button>
-    </form>
+    <div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2 bg-white rounded-full shadow-md p-1">
+      <img src="assets/astro.svg" alt="A" class="w-10 h-10 rounded-full" />
+    </div>
+    <div class="absolute bottom-[15%] right-[8%] transform translate-y-1/2 bg-white rounded-full shadow-md p-1">
+      <img src="assets/bulma.svg" alt="B" class="w-10 h-10 rounded-full" />
+    </div>
+   <!-- Bottom Center Icon -->
+<div class="absolute bottom-[60px] left-1/2 transform -translate-x-1/2 bg-white rounded-full shadow-md p-1">
+  <img src="assets/hugo.svg" alt="H" class="w-10 h-10 rounded-full" />
+</div>
+
+    <div class="absolute bottom-[15%] left-[8%] transform translate-y-1/2 bg-white rounded-full shadow-md p-1">
+      <img src="assets/jekyll.svg" alt="D" class="w-10 h-10 rounded-full" />
+    </div>
+    <div class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 bg-white rounded-full shadow-md p-1">
+      <img src="assets/nextjs.svg" alt="Next" class="w-10 h-10 rounded-full" />
+    </div>
+    <div class="absolute top-[15%] left-[8%] transform -translate-y-1/2 bg-white rounded-full shadow-md p-1">
+      <img src="assets/logo.svg" alt="V" class="w-10 h-10 rounded-full" />
+    </div>
+  </div>
+  <!-- Center Content -->
+  <div class="relative z-10 max-w-3xl px-4 text-center">
+    <h1 class="text-[22px] sm:text-3xl md:text-5xl font-extrabold text-gray-800 leading-tight">
+      Marketplace of Beautifully Crafted Website Templates for<br>
+      <span class="text-[#40b3c3]">Startups & Developers</span>
+    </h1>
+    <p class="mt-6 text-sm sm:text-base text-gray-600 max-w-xl mx-auto">
+      Simplify your web development process and save valuable time by using our<br /> 100+ exclusive themes built with modern web technologies.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <button class="px-6 py-3 rounded-md bg-[#40b3c3] text-white font-semibold hover:bg-[#3aa4b2]">All Templates</button>
+      <button class="px-6 py-3 rounded-md border border-[#40b3c3] text-[#40b3c3] font-semibold hover:bg-[#e0f7fa]">Hire Experts</button>
+    </div>
+    <!-- Mobile Icons - horizontal row -->
+<div class="grid md:hidden grid-cols-4 gap-4 mt-10">
+  <img src="assets/nextjs.svg" alt="N" class="w-10 h-10 rounded-full bg-white p-1 shadow-md mx-auto" />
+  <img src="assets/bootstrap.svg" alt="Pencil" class="w-10 h-10 rounded-full bg-white p-1 shadow-md mx-auto" />
+  <img src="assets/astro.svg" alt="A" class="w-10 h-10 rounded-full bg-white p-1 shadow-md mx-auto" />
+  <img src="assets/bulma.svg" alt="B" class="w-10 h-10 rounded-full bg-white p-1 shadow-md mx-auto" />
+  <img src="assets/hugo.svg" alt="H" class="w-10 h-10 rounded-full bg-white p-1 shadow-md mx-auto" />
+  <img src="assets/jekyll.svg" alt="D" class="w-10 h-10 rounded-full bg-white p-1 shadow-md mx-auto" />
+  <img src="assets/nextjs.svg" alt="Next" class="w-10 h-10 rounded-full bg-white p-1 shadow-md mx-auto" />
+  <img src="assets/logo.svg" alt="V" class="w-10 h-10 rounded-full bg-white p-1 shadow-md mx-auto" />
+</div>
+
+  </div>
+</section>
+
+<section class="max-w-[1500px] mt-[50px] mx-auto px-4 pt-12">
+  <h2 class="text-center text-[41.5039px] md:text-4xl font-bold text-[#081E2B] mb-10">Astro Themes</h2>
+
+  <div class="flex flex-wrap justify-center gap-x-10 gap-y-8">
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/fortify.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
   </div>
 
-  <!-- Floating Toggle Button -->
-  <button id="chatToggleBtn" class="fixed bottom-6 right-6 w-16 h-16 bg-[#4EA8B9] text-white rounded-full shadow-lg flex items-center justify-center z-50">
-    <svg id="chatIcon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 rotate-icon transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path id="iconPath" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.986 9.986 0 01-4.829-1.216L3 21l1.218-3.777A8.96 8.96 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-    </svg>
-  </button>
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Fortify Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Trendy SaaS & Startup Theme</p>
+  </div>
+</div>
 
-  <!-- Script -->
-  <script>
-    const chatWidget = document.getElementById('chatWidget');
-    const toggleBtn = document.getElementById('chatToggleBtn');
-    const icon = document.getElementById('chatIcon');
-    const iconPath = document.getElementById('iconPath');
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/bexer.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
 
-    let isOpen = false;
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">bexer Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$77</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Multilingual business Theme</p>
+  </div>
+</div>
 
-    const messageIconPath = "M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.986 9.986 0 01-4.829-1.216L3 21l1.218-3.777A8.96 8.96 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z";
-    const closeIconPath = "M6 18L18 6M6 6l12 12";
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/optimize.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
 
-    toggleBtn.addEventListener('click', () => {
-      isOpen = !isOpen;
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Optimize Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Trendy SaaS & Startup Theme</p>
+  </div>
+</div>
 
-      if (isOpen) {
-        chatWidget.classList.remove('translate-hidden');
-        chatWidget.classList.add('translate-visible');
-      } else {
-        chatWidget.classList.remove('translate-visible');
-        chatWidget.classList.add('translate-hidden');
-      }
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/cleaner.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
 
-      icon.classList.toggle('rotate-180');
-      iconPath.setAttribute('d', isOpen ? closeIconPath : messageIconPath);
-    });
-  </script>
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Cleaner Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Astro Theme for Service Businesses</p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/cloudpeak.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Cloudpeak Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Auto Dark SaaS Theme</p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/glasto.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Glasto Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">SaaS & Startup Theme</p>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+<section class="max-w-[1500px] mx-auto px-4 pt-12">
+ 
+
+  <div class="flex flex-wrap justify-center gap-x-10 gap-y-8">
+  <div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/nextspace.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">NextSpace Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Architecture & Interior Astro Theme</p>
+  </div>
+</div>
+
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/clarity.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Clarity Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Security SaaS & Startup Theme</p>
+  </div>
+</div>
+
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/bigspring-light.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Bigspring Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">SaaS & Agency Theme</p>
+  </div>
+</div>
+
+
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/docbox.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">DocBox Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Astro documentation Theme</p>
+  </div>
+</div>
+
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/pinwheel.webp" 
+      alt="Pinwheel Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <!-- Title + "Free" badge -->
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Pinwheel Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">Free</span>
+    </div>
+
+    <!-- Paragraph + Downloads -->
+    <div class="flex justify-between items-start text-sm text-gray-500 mb-3">
+      <p class="text-[15px]">Free Multipose SaaS Theme</p>
+      <div class="text-right leading-tight">
+        <div class="flex items-center justify-end gap-1 text-gray-600 text-xs">
+          <!-- Download Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          <span class="text-[17px]">941</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/andromeda.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Andromeda Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Trendy SaaS & Startup Theme</p>
+  </div>
+</div>
+
+  </div>
+</section>
+<section class="max-w-[1500px] mx-auto px-4 pt-12">
+
+
+  <div class="flex flex-wrap justify-center gap-x-10 gap-y-8">
+    <!-- Template Card -->
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/automatepro.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">AutomatePro Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Trendy SaaS & Startup Theme</p>
+  </div>
+</div>
+
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/atemp.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Atemp Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Trendy SaaS & Startup Theme</p>
+  </div>
+</div>
+
+
+
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/bigspring.webp" 
+      alt="Pinwheel Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <!-- Title + "Free" badge -->
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Bigspring light Astro</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">Free</span>
+    </div>
+
+    <!-- Paragraph + Downloads -->
+    <div class="flex justify-between items-start text-sm text-gray-500 mb-3">
+      <p class="text-[15px]">Free Multipose SaaS Theme</p>
+      <div class="text-right leading-tight">
+        <div class="flex items-center justify-end gap-1 text-gray-600 text-xs">
+          <!-- Download Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          <span class="text-[17px]">941</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+<div class="items-center mt-[50px] justify-center flex">
+<button class=" h-[50px] w-[200px] bg-[#4cacbc] text-[#FFFFFF] justify-center text-center justify-center items-center rounded-lg hover:scale-110 hover:shadow-md transition duration-100">View all Products</button></div>
+
+
+<section class="max-w-[1500px] mt-[100px] mx-auto px-4 pt-12">
+  <h2 class="text-center text-[41.5039px] md:text-4xl font-bold text-[#081E2B] mb-10">Nextjs Templates</h2>
+
+  <div class="flex flex-wrap justify-center gap-x-10 gap-y-8">
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/fortify.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Fortify Nextjs</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Security SaaS & Startup Theme</p>
+  </div>
+</div>
+ <div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/nextspace.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">NextSpace Nextjs</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Architecture & Interior Nextjs Astro Theme</p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/darkrise.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Darkrise Nextjs</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Nextjs Dark SaaS Theme</p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/bigspring-light.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">bigspring Nextjs</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Nextjs SaaS Theme</p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/cleaner.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Cleaner Nextjs</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Nextjs Theme for Service Businesses
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/cloudpeak.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Cloudpeak Nextjs</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Nextjs Dark SaaS Theme
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/optimize.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Optimize Nextjs</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Trendy SaaS & Startup Theme
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/clarity.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Clarity Nextjs</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Security SaaS & Startup Theme
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/glasto.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Glasto Nextjs</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">SaaS & Startup Theme
+    </p>
+  </div>
+</div>
+  </div>
+</section>
+<div class="items-center mt-[50px] justify-center flex">
+<button class=" h-[50px] w-[200px] bg-[#4cacbc] text-[#FFFFFF] justify-center text-center justify-center items-center rounded-lg hover:scale-110 hover:shadow-md transition duration-100">View all Products</button></div>
+
+
+<section class="max-w-[1500px] mt-[100px] mx-auto px-4 pt-12">
+  <h2 class="text-center text-[41.5039px] md:text-4xl font-bold text-[#081E2B] mb-10">Hugo Themes</h2>
+
+  <div class="flex flex-wrap justify-center gap-x-10 gap-y-8">
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/telldesk.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">TellDesk Hugo</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Multipurose SaaS Theme</p>
+  </div>
+</div>
+ <div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/fortify.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Fortify Hugo </h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$97</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Multipurose SaaS Theme</p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/logbook.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Logbook Hugo </h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$77</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Hugo Blog Theme</p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/delta.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Delta Hugo</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$77</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Hugo SaaS Theme</p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/copper.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Copper Hugo</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$77</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Hugo SaaS Website Theme    
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/biztrox.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Biztrox Hugo</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$77</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Hugo Business Theme
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/reader.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Reader Hugo</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$77</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Hugo Blog Theme
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/adrian.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Adrain Hugo</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$77</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Hugo-E-Commerce theme
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/agen.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Agen Hugo</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$77</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Hugo Agency Theme
+    </p>
+  </div>
+</div>
+  </div>
+</section>
+<div class="items-center mt-[50px] justify-center flex">
+<button class=" h-[50px] w-[200px] bg-[#4cacbc] text-[#FFFFFF] justify-center text-center justify-center items-center rounded-lg hover:scale-110 hover:shadow-md transition duration-100">View all Products</button></div>
+
+
+
+<section class="max-w-[1500px] mt-[100px] mx-auto px-4 pt-12">
+  <h2 class="text-center text-[41.5039px] md:text-4xl font-bold text-[#081E2B] mb-10">Tailwind Templates</h2>
+
+  <div class="flex flex-wrap justify-center gap-x-10 gap-y-8">
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/spydea.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Spydea Tailwind</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$47</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Multipurose SaaS Theme</p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/pinwheel.webp" 
+      alt="Pinwheel Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <!-- Title + "Free" badge -->
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Pinwheel Tailwind</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">Free</span>
+    </div>
+
+    <!-- Paragraph + Downloads -->
+    <div class="flex justify-between items-start text-sm text-gray-500 mb-3">
+      <p class="text-[15px]">Free Multipose SaaS Theme</p>
+      <div class="text-right leading-tight">
+        <div class="flex items-center justify-end gap-1 text-gray-600 text-xs">
+          <!-- Download Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          <span class="text-[17px]">1298</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/cloudpeak.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Cloudpeak Tailwind </h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$47</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">SaaS & Startup Templates</p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/mercury.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Mercury Tailwind</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$47</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Dark SaaS Template</p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/neptune.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Neptune Tailwind</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$47</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Tailwind SaaS Template    
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/atemp.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Atemp Tailwind</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$47</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">SaaS & Startup Template
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/andromeda.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Andromeda Tailwind </h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$47</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Tailwind Marketing Template
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/dexler.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Dexler Tailwind</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$47</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Tailwind SaaS Template
+    </p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400p0] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/docbox.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">DocBox Tailwind</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$47</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Modern Documentation Template
+    </p>
+  </div>
+</div>
+  </div>
+</section>
+<div class="items-center mt-[50px] justify-center flex">
+<button class=" h-[50px] w-[200px] bg-[#4cacbc] text-[#FFFFFF] justify-center text-center justify-center items-center rounded-lg hover:scale-110 hover:shadow-md transition duration-100">View all Products</button></div>
+
+
+
+<section class="max-w-[1500px] mt-[100px] mx-auto px-4 pt-12">
+  <h2 class="text-center text-[41.5039px] md:text-4xl font-bold text-[#081E2B] mb-10">Bootstrap Templates</h2>
+
+  <div class="flex flex-wrap justify-center gap-x-10 gap-y-8">
+    <div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/copper.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Copper Bootstrap</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$37</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">SaaS Website Template</p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/biztrox.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Biztrox Bootstrap</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$37</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Multipage business Template</p>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/bexer.webp" 
+      alt="Optimize Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Bexer Bootstrap</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">$37</span>
+    </div>
+    <p class="text-[15px] text-gray-500 mb-3">Business Website Template </p>
+  </div>
+</div>
+
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/quixlab.webp" 
+      alt="Pinwheel Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <!-- Title + "Free" badge -->
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Quixlab Bootstrap</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">Free</span>
+    </div>
+
+    <!-- Paragraph + Downloads -->
+    <div class="flex justify-between items-start text-sm text-gray-500 mb-3">
+      <p class="text-[15px]">Admin Dashboard Template</p>
+      <div class="text-right leading-tight">
+        <div class="flex items-center justify-end gap-1 text-gray-600 text-xs">
+          <!-- Download Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          <span class="text-[17px]">66108</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/constra.webp" 
+      alt="Pinwheel Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <!-- Title + "Free" badge -->
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Constra Bootstrap</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">Free</span>
+    </div>
+
+    <!-- Paragraph + Downloads -->
+    <div class="flex justify-between items-start text-sm text-gray-500 mb-3">
+      <p class="text-[15px]">construction Template</p>
+      <div class="text-right leading-tight">
+        <div class="flex items-center justify-end gap-1 text-gray-600 text-xs">
+          <!-- Download Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          <span class="text-[17px]">69012</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/focus.webp" 
+      alt="Pinwheel Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <!-- Title + "Free" badge -->
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Focus Bootstrap</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">Free</span>
+    </div>
+
+    <!-- Paragraph + Downloads -->
+    <div class="flex justify-between items-start text-sm text-gray-500 mb-3">
+      <p class="text-[15px]">bootstrap Admin Template</p>
+      <div class="text-right leading-tight">
+        <div class="flex items-center justify-end gap-1 text-gray-600 text-xs">
+          <!-- Download Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          <span class="text-[17px]">73462</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/educenter.webp" 
+      alt="Pinwheel Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <!-- Title + "Free" badge -->
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Educenter Bootstrap</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">Free</span>
+    </div>
+
+    <!-- Paragraph + Downloads -->
+    <div class="flex justify-between items-start text-sm text-gray-500 mb-3">
+      <p class="text-[15px]">Education Template</p>
+      <div class="text-right leading-tight">
+        <div class="flex items-center justify-end gap-1 text-gray-600 text-xs">
+          <!-- Download Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          <span class="text-[17px]">33317</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/eventre.webp" 
+      alt="Pinwheel Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <!-- Title + "Free" badge -->
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Eventre Bootstrap</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">Free</span>
+    </div>
+
+    <!-- Paragraph + Downloads -->
+    <div class="flex justify-between items-start text-sm text-gray-500 mb-3">
+      <p class="text-[15px]">Event & Conference Template</p>
+      <div class="text-right leading-tight">
+        <div class="flex items-center justify-end gap-1 text-gray-600 text-xs">
+          <!-- Download Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          <span class="text-[17px]">17749</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-[#f7f7f7] w-[400px] h-[400px] rounded-xl shadow-sm overflow-hidden">
+  <!-- Image Container -->
+  <div class="relative h-[300px] overflow-hidden group">
+    <img 
+      src="assets/airspace.webp" 
+      alt="Pinwheel Astro" 
+      class="absolute top-[-2px] left-0 w-full h-[300px] object-cover transition-all duration-100 ease-in-out group-hover:top-[2px]"
+    >
+  </div>
+
+  <!-- Text Content -->
+  <div class="p-5">
+    <!-- Title + "Free" badge -->
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="font-semibold text-[21.25px] text-[#1a1a1a]">Airspace Bootstrap</h3>
+      <span class="font-semibold text-[17px] text-[#1a1a1a]">Free</span>
+    </div>
+
+    <!-- Paragraph + Downloads -->
+    <div class="flex justify-between items-start text-sm text-gray-500 mb-3">
+      <p class="text-[15px]">Agency Template</p>
+      <div class="text-right leading-tight">
+        <div class="flex items-center justify-end gap-1 text-gray-600 text-xs">
+          <!-- Download Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          <span class="text-[17px]">28476</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+<div class="items-center mt-[50px] justify-center flex">
+<button class=" h-[50px] w-[200px] bg-[#4cacbc] text-[#FFFFFF] justify-center text-center justify-center items-center rounded-lg hover:scale-110 hover:shadow-md transition duration-100">View all Products</button></div>
+
+<!------Footer------>
+
+<footer class="bg-[#1c1c2c] text-gray-400 mt-[100px] text-base pt-16 pb-10 px-6">
+  <div class="max-w-7xl mx-auto">
+    <!-- Top Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <!-- Products -->
+      <div>
+        <h5 class="text-white font-semibold text-lg mb-2">Products</h5>
+        <div class="w-6 h-[2px] bg-gray-500 mb-4"></div>
+        <ul class="space-y-3">
+          <li><a href="#">Astro Themes</a></li>
+          <li><a href="#">NextJs Templates</a></li>
+          <li><a href="#">Hugo Themes</a></li>
+          <li><a href="#">Bootstrap Templates</a></li>
+          <li><a href="#">Tailwind Templates</a></li>
+        </ul>
+      </div>
+      <!-- Bundles -->
+      <div>
+        <h5 class="text-white font-semibold text-lg mb-2">Bundles</h5>
+        <div class="w-6 h-[2px] bg-gray-500 mb-4"></div>
+        <ul class="space-y-3">
+          <li><a href="#">All Access Pass</a></li>
+          <li><a href="#">Hugo Bundle</a></li>
+          <li><a href="#">Astro Bundle</a></li>
+          <li><a href="#">Nextjs Bundle</a></li>
+          <li><a href="#">Tailwind Bundle</a></li>
+          <li><a href="#">Bootstrap Bundle</a></li>
+        </ul>
+      </div>
+      <!-- Help and Support -->
+      <div>
+        <h5 class="text-white font-semibold text-lg mb-2">Help And Support</h5>
+        <div class="w-6 h-[2px] bg-gray-500 mb-4"></div>
+        <ul class="space-y-3">
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Frequently Asked Questions</a></li>
+          <li><a href="#">Custom Development</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Brands</a></li>
+        </ul>
+      </div>
+      <!-- Terms -->
+      <div>
+        <h5 class="text-white font-semibold text-lg mb-2">Terms</h5>
+        <div class="w-6 h-[2px] bg-gray-500 mb-4"></div>
+        <ul class="space-y-3">
+          <li><a href="#">License</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Support Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+<!-- Bottom Section -->
+<div class="border-t border-gray-600 pt-8 grid grid-cols-1 lg:grid-cols-3 items-start gap-8">
+  <!-- Other Brands (aligned to same grid as 'Products') -->
+  <div class="text-left">
+    <h5 class="text-white font-semibold text-lg mb-2">Other Brands</h5>
+    <div class="w-6 h-[2px] bg-gray-500 mb-4"></div>
+    <div class="flex gap-6 items-center justify-start">
+      <img src="assets/ght-logo-white.svg" alt="GetHugoThemes" class="h-8" />
+      <img src="assets/sh-logo-white.svg" alt="Statichunt" class="h-7" />
+    </div>
+  </div>
+  <!-- Follow Us -->
+ <div class="text-left">
+    <h5 class="text-white font-semibold text-lg mb-2">Follow Us</h5>
+    <div class="w-6 h-[2px] bg-gray-500 mb-4"></div>
+    <div class="flex gap-5 text-white text-base">
+      <a href="#"><i class="fab fa-facebook-f hover:text-[#1e9db4]"></i></a>
+      <a href="#"><i class="fab fa-x-twitter hover:text-[#1e9db4]"></i></a>
+      <a href="#"><i class="fab fa-dribbble hover:text-[#1e9db4]"></i></a>
+      <a href="#"><i class="fab fa-github hover:text-[#1e9db4]"></i></a>
+    </div>
+  </div>
+  <!-- Copyright -->
+  <div class="text-left lg:text-right text-gray-500 text-base">
+    <p>Copyright © 2025 Themefisher</p>
+    <br />
+    <img src="assets/manage-via-sitepins.svg" class="h-[50px] w-[150px]">
+  </div>
+</div>
+  </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
+
+  
+

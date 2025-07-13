@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Themes Grid</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    /* Ensures image fits without cropping on all devices */
+    .card-img {
+      object-fit: cover;
+      object-position: top;
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 640px) {
+      .card-img {
+        object-fit: contain;
+      }
+    }
+  </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- NAVBAR -->
+    <header class="w-full bg-white shadow-sm px-4 md:px-12 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <img
+            src="https://themefisher.com/images/logo/logo.svg"
+            alt="Logo"
+            class="h-8"
+          />
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-6 text-gray-800 font-medium">
+          <a href="home.html" class="text-[#1e9db4]">Home</a>
+          <div class="relative group cursor-pointer">
+            <a href="themes.html"><span class="flex items-center gap-1">All Themes
+              <i class="fa-solid fa-chevron-down text-xs"></i></a>
+            </span>
+          </div>
+          <div class="relative group cursor-pointer">
+           <a href="bundles.html"> <span class="flex items-center gap-1">Bundles
+           
+              <i class="fa-solid fa-chevron-down text-xs"></i></a>
+            </span>
+          </div>
+          <a href="contact.html" class="hover:text-[#1e9db4]">Contact</a>
+          <a href="https://zeon.studio/?ref=themefisher.com" class="hover:text-[#1e9db4]">Hire Experts</a>
+        </nav>
+
+        <!-- Right Controls -->
+        <div class="hidden md:flex items-center gap-4">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              class="pl-9 pr-3 py-2 border border-gray-300 rounded-md bg-white text-sm placeholder-gray-500"
+            />
+            <i
+              class="fa fa-search absolute top-2.5 left-3 text-gray-400 text-sm"
+            ></i>
+          </div>
+          <a href="cart.html" class="text-gray-700">
+            <i class="fas fa-shopping-cart text-lg"></i>
+          </a>
+          <a
+            href="Login.html"
+            class="px-4 py-2 border border-gray-400 rounded-md text-sm hover:bg-gray-100"
+          >
+            <i class="fa-solid fa-user mr-2"></i> Login
+          </a>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="flex md:hidden items-center gap-4">
+          <button id="mobileSearchBtn">
+            <i class="fas fa-search text-lg text-gray-700"></i>
+          </button>
+          <a href="cart.html"><i class="fas fa-shopping-cart text-lg text-gray-700"></i></a>
+          <a href="Login.html"><i class="fas fa-user text-lg text-gray-700"></i></a>
+          <button id="menuBtn">
+            <i class="fas fa-bars text-2xl text-gray-700"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Search -->
+      <div id="mobileSearchBar" class="hidden md:hidden mt-3">
+        <input
+          type="text"
+          placeholder="Search..."
+          class="w-full border border-gray-300 rounded-md p-2"
+        />
+      </div>
+    </header>
+
+    <!-- Mobile Sidebar Menu -->
+    <div
+      id="mobileMenu"
+      class="fixed hidden top-0 left-0 w-3/4 max-w-xs h-full bg-white z-50 p-5 shadow-lg"
+    >
+      <div class="flex justify-between items-center mb-6">
+        <img
+          src="https://themefisher.com/images/logo/logo.svg"
+          alt="Logo"
+          class="h-8"
+        />
+        <button id="closeMenu">
+          <i class="fas fa-times text-2xl text-gray-800"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-4 text-gray-800 text-base font-medium">
+        <a href="home.html"><i class="fas fa-home mr-2"></i> Home</a>
+        <a href="themes.html"><i class="fas fa-layer-group mr-2"></i> All Themes</a>
+        <a href="bundles.html"><i class="fas fa-box-open mr-2"></i> Bundles</a>
+        <a href="contact.html"><i class="fas fa-phone mr-2"></i> Contact</a>
+        <a href="https://zeon.studio/?ref=themefisher.com"><i class="fas fa-user-tie mr-2"></i> Hire Experts</a>
+      </nav>
+    </div>
+
+    <!-- HEADER -->
+    <section class="text-center my-10 px-4">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-3">Themes Bundles</h1>
+      <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+        Get premium themes at an unbeatable price! Save big and build stunning
+        websites with our curated bundles.
+      </p>
+    </section>
+    
+  <div class="mx-auto w-[95%] max-w-[1240px] flex flex-wrap justify-center gap-6 px-2 sm:px-4">
+
+    <!-- CARD TEMPLATE -->
+    <div class="bg-white rounded-2xl h-[570px] shadow-lg overflow-hidden w-full sm:w-[580px] flex flex-col">
+      <div class="w-full h-[450px] overflow-hidden">
+        <img src="assets/astro-bundle.webp" class="card-img" />
+      </div>
+      <div class="p-[25.5px] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
+        <div class="text-left">
+          <h3 class="font-semibold text-gray-800 text-[27px] mb-1">Astro Bundle</h3>
+          <p class="text-[17px] text-gray-600">32+ Astro Themes Bundle</p>
+        </div>
+        <button class="bg-teal-500 text-white px-4 py-2 text-[17px] font-semibold rounded-md hover:bg-teal-600 transition w-fit sm:ml-auto">Grab The Deal</button>
+      </div>
+    </div>
+
+    <!-- COPY THIS BLOCK FOR OTHER CARDS -->
+
+    <div class="bg-white rounded-2xl h-[570px] shadow-lg overflow-hidden w-full sm:w-[580px] flex flex-col">
+      <div class="w-full h-[450px] overflow-hidden">
+        <img src="assets/bootstrap-bundle.webp" class="card-img" />
+      </div>
+      <div class="p-[25.5px] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
+        <div class="text-left">
+          <h3 class="font-semibold text-gray-800 text-[27px] mb-1">Bootstrap Bundle</h3>
+          <p class="text-[17px] text-gray-600">14+ Bootstrap Templates Bundle</p>
+        </div>
+        <button class="bg-teal-500 text-white px-4 py-2 text-[17px] font-semibold rounded-md hover:bg-teal-600 transition w-fit sm:ml-auto">Grab The Deal</button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl h-[570px] shadow-lg overflow-hidden w-full sm:w-[580px] flex flex-col">
+      <div class="w-full h-[450px] overflow-hidden">
+        <img src="assets/hugo-bundle.webp" class="card-img" />
+      </div>
+      <div class="p-[25.5px] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
+        <div class="text-left">
+          <h3 class="font-semibold text-gray-800 text-[27px] mb-1">Hugo Bundle</h3>
+          <p class="text-[17px] text-gray-600">31+ Hugo Themes Bundle</p>
+        </div>
+        <button class="bg-teal-500 text-white px-4 py-2 text-[17px] font-semibold rounded-md hover:bg-teal-600 transition w-fit sm:ml-auto">Grab The Deal</button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl h-[570px] shadow-lg overflow-hidden w-full sm:w-[580px] flex flex-col">
+      <div class="w-full h-[450px] overflow-hidden">
+        <img src="assets/nextjs-bundle.webp" class="card-img" />
+      </div>
+      <div class="p-[25.5px] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
+        <div class="text-left">
+          <h3 class="font-semibold text-gray-800 text-[27px] mb-1">Nextjs Bundle</h3>
+          <p class="text-[17px] text-gray-600">17+ Nextjs Templates Bundle</p>
+        </div>
+        <button class="bg-teal-500 text-white px-4 py-2 text-[17px] font-semibold rounded-md hover:bg-teal-600 transition w-fit sm:ml-auto">Grab The Deal</button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl h-[570px] shadow-lg overflow-hidden w-full sm:w-[580px] flex flex-col">
+      <div class="w-full h-[450px] overflow-hidden">
+        <img src="assets/tailwind-bundle.webp" class="card-img" />
+      </div>
+      <div class="p-[25.5px] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
+        <div class="text-left">
+          <h3 class="font-semibold text-gray-800 text-[27px] mb-1">Tailwind Bundle</h3>
+          <p class="text-[17px] text-gray-600">11+ Tailwind Templates Bundle</p>
+        </div>
+        <button class="bg-teal-500 text-white px-4 py-2 text-[17px] font-semibold rounded-md hover:bg-teal-600 transition w-fit sm:ml-auto">Grab The Deal</button>
+      </div>
+    </div>
+
+  </div>
+
+  
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1c1c2c] text-gray-400 mt-20 text-base pt-16 pb-10 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+          <div>
+            <h5 class="text-white font-semibold mb-2">Products</h5>
+            <ul class="space-y-2 mt-3 text-sm">
+              <li><a href="#">Astro Themes</a></li>
+              <li><a href="#">NextJs Templates</a></li>
+              <li><a href="#">Hugo Themes</a></li>
+              <li><a href="#">Bootstrap Templates</a></li>
+              <li><a href="#">Tailwind Templates</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="text-white font-semibold mb-2">Bundles</h5>
+            <ul class="space-y-2 mt-3 text-sm">
+              <li><a href="#">All Access Pass</a></li>
+              <li><a href="#">Hugo Bundle</a></li>
+              <li><a href="#">Astro Bundle</a></li>
+              <li><a href="#">Nextjs Bundle</a></li>
+              <li><a href="#">Tailwind Bundle</a></li>
+              <li><a href="#">Bootstrap Bundle</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="text-white font-semibold mb-2">Help</h5>
+            <ul class="space-y-2 mt-3 text-sm">
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Custom Development</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Brands</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="text-white font-semibold mb-2">Terms</h5>
+            <ul class="space-y-2 mt-3 text-sm">
+              <li><a href="#">License</a></li>
+              <li><a href="#">Refund Policy</a></li>
+              <li><a href="#">Support Policy</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-700 pt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h5 class="text-white font-semibold mb-2">Other Brands</h5>
+            <div class="flex items-center gap-4 mt-3">
+              <img src="assets/ght-logo-white.svg" alt="" class="h-8" />
+              <img src="assets/sh-logo-white.svg" alt="" class="h-7" />
+            </div>
+          </div>
+          <div>
+            <h5 class="text-white font-semibold mb-2">Follow Us</h5>
+            <div class="flex gap-4 mt-3 text-white">
+              <a href="#"><i class="fab fa-facebook-f hover:text-[#1e9db4]"></i></a>
+              <a href="#"><i class="fab fa-x-twitter hover:text-[#1e9db4]"></i></a>
+              <a href="#"><i class="fab fa-dribbble hover:text-[#1e9db4]"></i></a>
+              <a href="#"><i class="fab fa-github hover:text-[#1e9db4]"></i></a>
+            </div>
+          </div>
+          <div class="text-sm text-gray-500 text-center md:text-right">
+            <p>© 2025 Themefisher</p>
+            <img src="assets/manage-via-sitepins.svg" class="h-10 mx-auto md:ml-auto mt-3" />
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const closeMenu = document.getElementById("closeMenu");
+      const mobileSearchBtn = document.getElementById("mobileSearchBtn");
+      const mobileSearchBar = document.getElementById("mobileSearchBar");
+
+      menuBtn.onclick = () => mobileMenu.classList.remove("hidden");
+      closeMenu.onclick = () => mobileMenu.classList.add("hidden");
+      mobileSearchBtn.onclick = () =>
+        mobileSearchBar.classList.toggle("hidden");
+    </script>
+  </body>
+</html>
+

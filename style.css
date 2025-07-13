@@ -1,0 +1,57 @@
+
+  .rotate-icon {
+    transition: transform 0.4s ease;
+  }
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  #chatWidget {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform-origin: bottom right; /* نیچے دائیں سے انیمیٹ ہوگا */
+  }
+
+  .chat-hidden {
+    transform: scale(0.5) translate(30px, 30px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .chat-visible {
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+
+    .rotate-icon {
+      transition: transform 0.4s ease;
+    }
+
+    .rotate-180 {
+      transform: rotate(180deg);
+    }
+
+    .translate-visible {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .translate-hidden {
+      transform: translateY(50px) scale(0.9);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #chatWidget {
+      transition: all 0.4s ease;
+      transform-origin: bottom right;
+    }
+      .slide-in {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      .slide-in.active {
+        transform: translateX(0);
+      }
